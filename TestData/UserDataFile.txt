@@ -1,0 +1,4 @@
+name, gender, status
+rajat, male, active
+Mayank, male, inactive
+pashika, female, active

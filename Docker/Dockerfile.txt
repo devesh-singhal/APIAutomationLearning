@@ -1,0 +1,26 @@
+# Use the official Node.js 18 image as the base image
+FROM node:18
+
+# Set the working direcory in the container(linux)
+WORKDIR /app
+
+
+#Install Newman globally
+RUN npm install -g newman
+
+# Install Newman html reporter
+RUN npm install -g newman-reporter-html
+
+#Install Newman Reporter htmlExtra
+RUN npm install -g newman-reporter-htmlextra
+
+
+# Copy your Postman collection and environment files to the working direcory
+COPY GoRestAPIWorkflow.postman_collection.json .
+COPY GoRestEnv.json .
+
+# Set the command to run Newman and execute your Postman collection
+CMD ["newman", "run", "GoRestAPIWorkflow.postman_collection.json", "-e", "GoRestEnv.json", "-r", "cli,json,html,htmlextra"]
+
+
+

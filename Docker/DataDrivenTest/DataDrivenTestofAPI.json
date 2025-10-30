@@ -1,0 +1,157 @@
+{
+	"info": {
+		"_postman_id": "7cfba7d8-6d49-494c-81bb-e305a7ebc6bd",
+		"name": "Data Driven Test of API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "37194489",
+		"_collection_link": "https://www.postman.com/singhaldevesh/workspace/76c8928d-4c43-4982-aae4-1bad2b93b6ec/collection/37194489-7cfba7d8-6d49-494c-81bb-e305a7ebc6bd?action=share&source=collection_link&creator=37194489"
+	},
+	"item": [
+		{
+			"name": "Create User by Data file",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 201\", function () {\r",
+							"\tpm.response.to.have.status(201);\r",
+							"});\r",
+							"\r",
+							"\r",
+							"pm.test(\"Check user response data\", function () {\r",
+							"\tvar jsonData = pm.response.json();\r",
+							"\tpm.expect(jsonData.name).to.eql (pm.iterationData.get(\"name\"));\r",
+							"\t\tpm.expect(jsonData.gender).to.eql (pm.iterationData.get(\"gender\"));\r",
+							"\t\tpm.expect(jsonData.status).to.eql (pm.iterationData.get(\"status\"));\r",
+							"           \r",
+							"           \r",
+							"// FETCH THE EXPECTED EMAIL:\r",
+							"\t\t  const rawJSONRequestBody =  pm.request.body.raw ; // JSON string fetched\r",
+							"\t\t\t // convert json string to javascript object \r",
+							"\t\t\t      const requestBody =  JSON.parse(rawJSONRequestBody);\r",
+							"\t\t\t     const expectedemail =   requestBody.email;\r",
+							"\t\t\t\t\t console.log (\"expected email ======= \" + expectedemail);\r",
+							"\t\t\t\t\t pm.expect(jsonData.email).to.eql(expectedemail);\r",
+							"\r",
+							"});\r",
+							"\r",
+							"\r",
+							"                const response = pm.response.json();\r",
+							"                 const userID = response.id ; \r",
+							"                 pm.variables.set(\"user_id\" ,userID ) ; \r",
+							"\r",
+							"   \r",
+							"\r",
+							"\t\t\t\t\t\t\t  \r",
+							"\r",
+							"\r",
+							"\r",
+							"\r",
+							"\r",
+							"\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "{{tokenID}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "\r\n// name, gender and status is being fetched from csv file - file name is UserDataFile\r\n\r\n{\r\n    \"name\": \"{{name}}\",\r\n    \"gender\": \"{{gender}}\",\r\n    \"email\": \"{{$randomEmail}}\",\r\n    \"status\": \"{{status}}\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/public/v2/users",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"public",
+						"v2",
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update a User By id",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"\r",
+							"\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"\r",
+							"pm.test(\"Is user status updated\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.status).to.eql (pm.iterationData.get (\"newstatus\")) ;\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{tokenID}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "\r\n{\r\n \"status\" : \"{{newstatus}}\"\r\n\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/public/v2/users/{{user_id}}",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"public",
+						"v2",
+						"users",
+						"{{user_id}}"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

@@ -1,0 +1,21 @@
+{
+	"id": "c20f35a4-84dd-4d87-a775-8e5bafe189a1",
+	"name": "GoRestEnv",
+	"values": [
+		{
+			"key": "baseURL",
+			"value": "https://gorest.co.in",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "tokenID",
+			"value": "Bearer c257939495ba279bcf061d9ff92cf04ba1132364f95eda2484cba0136dfec383",
+			"type": "default",
+			"enabled": true
+		}
+	],
+	"_postman_variable_scope": "environment",
+	"_postman_exported_at": "2025-10-29T11:32:30.633Z",
+	"_postman_exported_using": "Postman/11.69.2"
+}
