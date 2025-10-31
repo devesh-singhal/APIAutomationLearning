@@ -1,7 +1,4 @@
 
-postman login --with-api-key PMAK-68fb8d73fd0e440001111289-e059548596fa2eb7050af817c1ba36fc62
-postman collection run 37194489-38021e48-9eb5-4e51-a38a-a9daa5ad1b27 -e 37194489-63f2e2c6-763a-4d9e-ae33-62e33021875f -i 37194489-089fb303-487b-48fc-9542-fe0371b3616d -i 37194489-4fc7cf20-42e3-4b1e-beff-00f300d2343b
-curl -i -H "Accept:application/json" -H "Content-Type:application/json" -H "Authorization: Bearer f4d6f854c93a235616c4cbf2fc4ecd38684edabc8d88a2aac53a85e802632170" -XPOST "https://gorest.co.in/public/v2/users" -d '{"name":"Tenali Ramakrishna", "gender":"male", "email":"tenali.ramakrishna@15ce.com", "status":"active"}'
 
 
 Basic Auth
