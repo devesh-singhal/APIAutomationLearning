@@ -4,7 +4,7 @@
 		"name": "GoRestAPIWorkflow",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "37194489",
-		"_collection_link": "https://www.postman.com/singhaldevesh/workspace/76c8928d-4c43-4982-aae4-1bad2b93b6ec/collection/37194489-6233a395-b36b-4f89-a678-08473956c5b5?action=share&source=collection_link&creator=37194489"
+		"_collection_link": "https://www.postman.com/singhaldevesh/workspace/api-automation-testing/collection/37194489-6233a395-b36b-4f89-a678-08473956c5b5?action=share&source=collection_link&creator=37194489"
 	},
 	"item": [
 		{
@@ -288,7 +288,8 @@
 							""
 						],
 						"type": "text/javascript",
-						"packages": {}
+						"packages": {},
+						"requests": {}
 					}
 				}
 			],
@@ -297,7 +298,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "\r\n{\"email\":\"{{email}}\",\r\n\r\n\"password\":\"Bsl@135#\"}",
+					"raw": "\r\n{\"email\":\"singhalfalcon@gmail.com\",\r\n\r\n\"password\":\"Bsl@135#\"}",
 					"options": {
 						"raw": {
 							"language": "json"
