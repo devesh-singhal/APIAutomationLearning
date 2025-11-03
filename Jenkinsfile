@@ -15,7 +15,7 @@ pipeline {
            
         stage('Git checkout') {
                steps {
-              git branch: 'main', credentialsId: '6d73546b-07e2-4da1-9ac5-308c7e8e1468', url: 'https://github.com/devesh-singhal/APIAutomationLearning.git'
+              git branch: 'master', credentialsId: '6d73546b-07e2-4da1-9ac5-308c7e8e1468', url: 'https://github.com/devesh-singhal/APIAutomationLearning.git'
              
             }
         }
