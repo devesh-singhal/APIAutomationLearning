@@ -20,7 +20,7 @@ pipeline {
             }
         }
 
-           stage('Pull docker image') {
+        stage('Pull docker image') {
                steps {
                 sh 'docker pull singhalfalcon/gorestddtest:1.0'
              
