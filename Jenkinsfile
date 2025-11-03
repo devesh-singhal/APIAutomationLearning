@@ -22,14 +22,14 @@ pipeline {
 
         stage('Pull docker image') {
                steps {
-                sh 'docker pull singhalfalcon/gorestddtest:1.0'
+                bat 'docker pull singhalfalcon/gorestddtest:1.0'
              
             }
         } 
     
          stage('Run API postman collection') {
                steps {
-                sh 'docker run -v %cd%/newman:/app/results singhalfalcon/gorestddtest:1.0'
+                bat 'docker run -v %cd%/newman:/app/results singhalfalcon/gorestddtest:1.0'
              
             }
         } 
